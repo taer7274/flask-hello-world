@@ -56,7 +56,7 @@ def db_insert():
     ''')
     conn.commit()
     conn.close()
-    return "Basketball Table Successfully Populated"
+    return "Basketball Table Populated"
 
 
 @app.route('/db_select')
@@ -74,3 +74,13 @@ def db_select():
         ret_string += "</tr>"
     ret_string += "</table>"
     return ret_string
+
+@app.route('/db_drop')
+def db_drop():
+    conn = psycopg2.connect("postgres://lab10_taer7274_user:HvgBKbFlikKwyGBEJ8wwBJ8tIsmazVRQ@dpg-cj4348d9aq047ca2h2dg-a/lab10_taer7274")
+    cur = conn.cursor()
+    cur.execute("DROP TABLE Basketball")
+    conn.commit()
+    conn.close()
+    return "Basketball Table Dropped"
+
