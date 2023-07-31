@@ -34,7 +34,7 @@ def db_create():
 
 @app.route('/db_insert')
 def db_insert():
-        conn = psycopg2.connect("postgres://lab10_taer7274_user:HvgBKbFlikKwyGBEJ8wwBJ8tIsmazVRQ@dpg-cj4348d9aq047ca2h2dg-a/lab10_taer7274")
+    conn = psycopg2.connect("postgres://lab10_taer7274_user:HvgBKbFlikKwyGBEJ8wwBJ8tIsmazVRQ@dpg-cj4348d9aq047ca2h2dg-a/lab10_taer7274")
     cur = conn.cursor()
     cur.execute('''
         CREATE TABLE IF NOT EXISTS Basketball(
@@ -48,12 +48,12 @@ def db_insert():
     cur = conn.cursor()
     cur.execute('''
     INSERT INTO Basketball (First, Last, City, Name, Number)
-Values
-('Jayson', 'Tatum', 'Boston', 'Celtics', 0),
-('Stephen', 'Curry', 'San Francisco', 'Warriors', 30),
-('Nikola', 'Jokic', 'Denver', 'Nuggets', 15),
-('Kawhi', 'Leonard', 'Los Angeles', 'Clippers', 2);
-''')
+    Values
+    ('Jayson', 'Tatum', 'Boston', 'Celtics', 0),
+    ('Stephen', 'Curry', 'San Francisco', 'Warriors', 30),
+    ('Nikola', 'Jokic', 'Denver', 'Nuggets', 15),
+    ('Kawhi', 'Leonard', 'Los Angeles', 'Clippers', 2);
+    ''')
     conn.commit()
     conn.close()
     return "Basketball Table Successfully Populated"
