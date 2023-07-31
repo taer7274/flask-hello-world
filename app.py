@@ -67,9 +67,9 @@ def db_select():
     returned_records = cur.fetchall()
     conn.close()
     ret_string = "<table>"
-    for pl in recs:
+    for player in returned_records:
         ret_string += "<tr>"
-        for details in pl:
+        for details in player:
             ret_string += f"<td>{details}</td>"
         ret_string += "</tr>"
     ret_string += "</table>"
